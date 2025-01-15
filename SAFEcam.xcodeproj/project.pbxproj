@@ -1,0 +1,563 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		DE8EBB8D2D37D78400E1A743 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DE8EBB742D37D78200E1A743 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DE8EBB7B2D37D78300E1A743;
+			remoteInfo = SAFEcam;
+		};
+		DE8EBB972D37D78400E1A743 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DE8EBB742D37D78200E1A743 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DE8EBB7B2D37D78300E1A743;
+			remoteInfo = SAFEcam;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DE8EBB7C2D37D78300E1A743 /* SAFEcam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SAFEcam.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE8EBB8C2D37D78400E1A743 /* SAFEcamTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SAFEcamTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE8EBB962D37D78400E1A743 /* SAFEcamUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SAFEcamUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		DE8EBB7E2D37D78300E1A743 /* SAFEcam */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = SAFEcam;
+			sourceTree = "<group>";
+		};
+		DE8EBB8F2D37D78400E1A743 /* SAFEcamTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = SAFEcamTests;
+			sourceTree = "<group>";
+		};
+		DE8EBB992D37D78400E1A743 /* SAFEcamUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = SAFEcamUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DE8EBB792D37D78300E1A743 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DE8EBB892D37D78400E1A743 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DE8EBB932D37D78400E1A743 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DE8EBB732D37D78200E1A743 = {
+			isa = PBXGroup;
+			children = (
+				DE8EBB7E2D37D78300E1A743 /* SAFEcam */,
+				DE8EBB8F2D37D78400E1A743 /* SAFEcamTests */,
+				DE8EBB992D37D78400E1A743 /* SAFEcamUITests */,
+				DE8EBB7D2D37D78300E1A743 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DE8EBB7D2D37D78300E1A743 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DE8EBB7C2D37D78300E1A743 /* SAFEcam.app */,
+				DE8EBB8C2D37D78400E1A743 /* SAFEcamTests.xctest */,
+				DE8EBB962D37D78400E1A743 /* SAFEcamUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DE8EBB7B2D37D78300E1A743 /* SAFEcam */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DE8EBBA02D37D78400E1A743 /* Build configuration list for PBXNativeTarget "SAFEcam" */;
+			buildPhases = (
+				DE8EBB782D37D78300E1A743 /* Sources */,
+				DE8EBB792D37D78300E1A743 /* Frameworks */,
+				DE8EBB7A2D37D78300E1A743 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				DE8EBB7E2D37D78300E1A743 /* SAFEcam */,
+			);
+			name = SAFEcam;
+			packageProductDependencies = (
+			);
+			productName = SAFEcam;
+			productReference = DE8EBB7C2D37D78300E1A743 /* SAFEcam.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DE8EBB8B2D37D78400E1A743 /* SAFEcamTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DE8EBBA32D37D78400E1A743 /* Build configuration list for PBXNativeTarget "SAFEcamTests" */;
+			buildPhases = (
+				DE8EBB882D37D78400E1A743 /* Sources */,
+				DE8EBB892D37D78400E1A743 /* Frameworks */,
+				DE8EBB8A2D37D78400E1A743 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DE8EBB8E2D37D78400E1A743 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				DE8EBB8F2D37D78400E1A743 /* SAFEcamTests */,
+			);
+			name = SAFEcamTests;
+			packageProductDependencies = (
+			);
+			productName = SAFEcamTests;
+			productReference = DE8EBB8C2D37D78400E1A743 /* SAFEcamTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DE8EBB952D37D78400E1A743 /* SAFEcamUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DE8EBBA62D37D78400E1A743 /* Build configuration list for PBXNativeTarget "SAFEcamUITests" */;
+			buildPhases = (
+				DE8EBB922D37D78400E1A743 /* Sources */,
+				DE8EBB932D37D78400E1A743 /* Frameworks */,
+				DE8EBB942D37D78400E1A743 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DE8EBB982D37D78400E1A743 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				DE8EBB992D37D78400E1A743 /* SAFEcamUITests */,
+			);
+			name = SAFEcamUITests;
+			packageProductDependencies = (
+			);
+			productName = SAFEcamUITests;
+			productReference = DE8EBB962D37D78400E1A743 /* SAFEcamUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DE8EBB742D37D78200E1A743 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					DE8EBB7B2D37D78300E1A743 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+					DE8EBB8B2D37D78400E1A743 = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = DE8EBB7B2D37D78300E1A743;
+					};
+					DE8EBB952D37D78400E1A743 = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = DE8EBB7B2D37D78300E1A743;
+					};
+				};
+			};
+			buildConfigurationList = DE8EBB772D37D78200E1A743 /* Build configuration list for PBXProject "SAFEcam" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DE8EBB732D37D78200E1A743;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = DE8EBB7D2D37D78300E1A743 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DE8EBB7B2D37D78300E1A743 /* SAFEcam */,
+				DE8EBB8B2D37D78400E1A743 /* SAFEcamTests */,
+				DE8EBB952D37D78400E1A743 /* SAFEcamUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DE8EBB7A2D37D78300E1A743 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DE8EBB8A2D37D78400E1A743 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DE8EBB942D37D78400E1A743 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DE8EBB782D37D78300E1A743 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DE8EBB882D37D78400E1A743 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DE8EBB922D37D78400E1A743 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DE8EBB8E2D37D78400E1A743 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DE8EBB7B2D37D78300E1A743 /* SAFEcam */;
+			targetProxy = DE8EBB8D2D37D78400E1A743 /* PBXContainerItemProxy */;
+		};
+		DE8EBB982D37D78400E1A743 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DE8EBB7B2D37D78300E1A743 /* SAFEcam */;
+			targetProxy = DE8EBB972D37D78400E1A743 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		DE8EBB9E2D37D78400E1A743 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DE8EBB9F2D37D78400E1A743 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DE8EBBA12D37D78400E1A743 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"SAFEcam/Preview Content\"";
+				DEVELOPMENT_TEAM = W89G52FS5G;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "이 앱은 카메라를 사용하여 촬영을 진행합니다.";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "이 앱은 촬영한 사진을 갤러리에 저장합니다.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = DANDAN.SAFEcam;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DE8EBBA22D37D78400E1A743 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"SAFEcam/Preview Content\"";
+				DEVELOPMENT_TEAM = W89G52FS5G;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "이 앱은 카메라를 사용하여 촬영을 진행합니다.";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "이 앱은 촬영한 사진을 갤러리에 저장합니다.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = DANDAN.SAFEcam;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		DE8EBBA42D37D78400E1A743 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = DANDAN.SAFEcamTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SAFEcam.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SAFEcam";
+			};
+			name = Debug;
+		};
+		DE8EBBA52D37D78400E1A743 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = DANDAN.SAFEcamTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SAFEcam.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SAFEcam";
+			};
+			name = Release;
+		};
+		DE8EBBA72D37D78400E1A743 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = DANDAN.SAFEcamUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SAFEcam;
+			};
+			name = Debug;
+		};
+		DE8EBBA82D37D78400E1A743 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = DANDAN.SAFEcamUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SAFEcam;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DE8EBB772D37D78200E1A743 /* Build configuration list for PBXProject "SAFEcam" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DE8EBB9E2D37D78400E1A743 /* Debug */,
+				DE8EBB9F2D37D78400E1A743 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DE8EBBA02D37D78400E1A743 /* Build configuration list for PBXNativeTarget "SAFEcam" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DE8EBBA12D37D78400E1A743 /* Debug */,
+				DE8EBBA22D37D78400E1A743 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DE8EBBA32D37D78400E1A743 /* Build configuration list for PBXNativeTarget "SAFEcamTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DE8EBBA42D37D78400E1A743 /* Debug */,
+				DE8EBBA52D37D78400E1A743 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DE8EBBA62D37D78400E1A743 /* Build configuration list for PBXNativeTarget "SAFEcamUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DE8EBBA72D37D78400E1A743 /* Debug */,
+				DE8EBBA82D37D78400E1A743 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DE8EBB742D37D78200E1A743 /* Project object */;
+}
