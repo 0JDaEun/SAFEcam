@@ -5,52 +5,78 @@
 //  Created by 정다은 on 1/15/25.
 //
 
+import Foundation
 import AVFoundation
-import UIKit
 
-class CameraViewModel: NSObject, ObservableObject {
+class CameraViewModel: ObservableObject {
     @Published var captureSession: AVCaptureSession?
-    private var videoDevice: AVCaptureDevice?
-
+    private var currentCamera: AVCaptureDevice?
+    private var isFlashOn = false
+    
     func setupCamera() {
-        let session = AVCaptureSession()
-        session.sessionPreset = .photo
-        
-        guard let device = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back) else { return }
-        self.videoDevice = device
-        
-        do {
-            let input = try AVCaptureDeviceInput(device: device)
-            session.addInput(input)
-        } catch {
-            print("Error setting up camera input: \(error)")
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            let session = AVCaptureSession()
+            session.sessionPreset = .photo
+            
+            guard let backCamera = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back) else {
+                print("No back camera available.")
+                return
+            }
+            
+            self?.currentCamera = backCamera
+            
+            do {
+                let input = try AVCaptureDeviceInput(device: backCamera)
+                if session.canAddInput(input) {
+                    session.addInput(input)
+                }
+                
+                DispatchQueue.main.async {
+                    self?.captureSession = session
+                }
+                
+                session.startRunning()
+            } catch {
+                print("Error setting up camera: \(error)")
+            }
         }
-        
-        self.captureSession = session
-        self.captureSession?.startRunning()
     }
     
-    func takePhoto() {
-        guard let captureSession = captureSession else { return }
-        let photoOutput = AVCapturePhotoOutput()
-        if captureSession.canAddOutput(photoOutput) {
-            captureSession.addOutput(photoOutput)
-        }
-        
-        let photoSettings = AVCapturePhotoSettings()
-        photoSettings.flashMode = .auto // 플래시 설정
-        photoOutput.capturePhoto(with: photoSettings, delegate: self)
+    func applyFilter() {
+        print("필터 기능 실행")
     }
-}
-
-extension CameraViewModel: AVCapturePhotoCaptureDelegate {
-    func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
-        if let error = error {
-            print("Error capturing photo: \(error)")
-            return
+    
+    func toggleFlash() {
+        guard let camera = currentCamera else { return }
+        do {
+            try camera.lockForConfiguration()
+            if camera.hasTorch {
+                camera.torchMode = isFlashOn ? .off : .on
+                isFlashOn.toggle()
+            }
+            camera.unlockForConfiguration()
+        } catch {
+            print("Flash toggle failed: \(error)")
         }
-        guard let imageData = photo.fileDataRepresentation() else { return }
-        let image = UIImage(data: imageData)
-        // 저장 또는 UI 업데이트
+    }
+    
+    func showInfo() {
+        print("정보 표시")
+    }
+    
+    func switchCamera() {
+        print("카메라 전환")
+    }
+    
+    func setTimer() {
+        print("타이머 설정")
+    }
+    
+    func changeAspectRatio() {
+        print("비율 변경")
+    }
+    
+    func capturePhoto() {
+        print("사진 촬영")
     }
 }

@@ -10,33 +10,68 @@ import AVFoundation
 
 struct ContentView: View {
     @StateObject private var viewModel = CameraViewModel()
-    
+
     var body: some View {
         ZStack {
-            // 카메라 프리뷰 표시
-            CameraPreview(session: viewModel.captureSession ?? AVCaptureSession())
-                .edgesIgnoringSafeArea(.all)
+            // 카메라 프리뷰
+            if let session = viewModel.captureSession {
+                CameraPreview(session: session)
+                    .edgesIgnoringSafeArea(.all)
+            } else {
+                Text("Loading Camera...")
+                    .foregroundColor(.gray)
+            }
             
-            // 버튼 UI
+            // 상단 버튼
             VStack {
-                Spacer() // 위쪽 공간 확보
-                HStack {
-                    CameraActionButton(icon: "photo.on.rectangle", label: "갤러리") {
-                        viewModel.openGallery()
-                    }
-                    Spacer()
-                    CameraActionButton(icon: "camera.circle", label: "촬영", action: viewModel.takePhoto)
-                    Spacer()
-                    CameraActionButton(icon: "gearshape", label: "설정", action: viewModel.openSettings)
+                HStack(spacing: 24) {
+                    CameraActionButton(icon: "camera.filters", label: "필터", action: viewModel.applyFilter)
+                    CameraActionButton(icon: "bolt.circle", label: "플래시", action: viewModel.toggleFlash)
+                    CameraActionButton(icon: "info.circle", label: "정보", action: viewModel.showInfo)
+                    CameraActionButton(icon: "arrow.triangle.2.circlepath.camera", label: "전환", action: viewModel.switchCamera)
+                    CameraActionButton(icon: "timer", label: "타이머", action: viewModel.setTimer)
+                    CameraActionButton(icon: "aspectratio", label: "비율", action: viewModel.changeAspectRatio)
                 }
-                .padding()
-                .background(Color.white.opacity(0.8)) // 버튼 배경색
-                .cornerRadius(16)
-                .padding(.bottom, 16) // 아래쪽 간격
+                .frame(maxWidth: .infinity)
+                .padding(.top, 24)
+                .padding(.horizontal)
+                .background(Color.white.opacity(0.9))
+                
+                Spacer()
+                
+                // 하단 촬영 버튼
+                Button(action: {
+                    viewModel.capturePhoto()
+                }) {
+                    Rectangle()
+                        .fill(Color.white)
+                        .frame(maxWidth: .infinity, maxHeight: 100)
+                        .shadow(radius: 5)
+                }
+                .padding(.bottom, 0)
             }
         }
         .onAppear {
-            viewModel.checkCameraPermission() // 카메라 권한 확인
+            viewModel.setupCamera()
+        }
+    }
+}
+
+struct CameraActionButton: View {
+    let icon: String
+    let label: String
+    let action: () -> Void
+    
+    var body: some View {
+        VStack {
+            Button(action: action) {
+                Image(systemName: icon)
+                    .font(.title2)
+                    .foregroundColor(.black)
+            }
+            Text(label)
+                .font(.caption)
+                .foregroundColor(.black)
         }
     }
 }
