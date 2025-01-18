@@ -7,12 +7,15 @@
 
 import Foundation
 import AVFoundation
+import Photos
+import UIKit
 
-class CameraViewModel: ObservableObject {
+class CameraViewModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
     @Published var captureSession: AVCaptureSession?
     private var currentCamera: AVCaptureDevice?
     private var isFlashOn = false
-    
+    private var photoOutput: AVCapturePhotoOutput?
+
     func setupCamera() {
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             let session = AVCaptureSession()
@@ -31,33 +34,72 @@ class CameraViewModel: ObservableObject {
                     session.addInput(input)
                 }
                 
+                let photoOutput = AVCapturePhotoOutput()
+                if session.canAddOutput(photoOutput) {
+                    session.addOutput(photoOutput)
+                    self?.photoOutput = photoOutput
+                }
+                
+                // Start session on the background thread
+                session.startRunning()
+                
                 DispatchQueue.main.async {
                     self?.captureSession = session
                 }
-                
-                session.startRunning()
             } catch {
                 print("Error setting up camera: \(error)")
             }
         }
     }
     
+    func capturePhoto() {
+        guard let photoOutput = photoOutput else { return }
+        let settings = AVCapturePhotoSettings()
+        
+        // 플래시 설정 추가
+        settings.flashMode = isFlashOn ? .on : .off
+        
+        photoOutput.capturePhoto(with: settings, delegate: self)
+    }
+    
+    private func saveImageToGallery(imageData: Data) {
+        PHPhotoLibrary.shared().performChanges({
+            if let image = UIImage(data: imageData) {
+                PHAssetChangeRequest.creationRequestForAsset(from: image)
+            }
+        }) { success, error in
+            DispatchQueue.main.async {
+                if success {
+                    print("사진이 갤러리에 저장되었습니다.")
+                } else if let error = error {
+                    print("갤러리 저장 실패: \(error)")
+                }
+            }
+        }
+    }
+    
+    // AVCapturePhotoCaptureDelegate 메서드
+    func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
+        if let error = error {
+            print("Error capturing photo: \(error.localizedDescription)")
+            return
+        }
+        
+        if let imageData = photo.fileDataRepresentation() {
+            saveImageToGallery(imageData: imageData)
+        } else {
+            print("Failed to process photo data.")
+        }
+    }
+    
+    // 추가된 메서드들
     func applyFilter() {
-        print("필터 기능 실행")
+        print("필터 적용")
     }
     
     func toggleFlash() {
-        guard let camera = currentCamera else { return }
-        do {
-            try camera.lockForConfiguration()
-            if camera.hasTorch {
-                camera.torchMode = isFlashOn ? .off : .on
-                isFlashOn.toggle()
-            }
-            camera.unlockForConfiguration()
-        } catch {
-            print("Flash toggle failed: \(error)")
-        }
+        isFlashOn.toggle()
+        print("플래시 상태: \(isFlashOn ? "켜짐" : "꺼짐")")
     }
     
     func showInfo() {
@@ -74,9 +116,5 @@ class CameraViewModel: ObservableObject {
     
     func changeAspectRatio() {
         print("비율 변경")
-    }
-    
-    func capturePhoto() {
-        print("사진 촬영")
     }
 }
