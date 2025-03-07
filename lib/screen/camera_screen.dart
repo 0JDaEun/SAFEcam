@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 import 'package:image_gallery_saver/image_gallery_saver.dart';
 import 'dart:io';
-import 'package:image/image.dart' as img;
 import 'package:path_provider/path_provider.dart';
-import 'dart:math';
-import 'package:flutter/foundation.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class CameraScreen extends StatefulWidget {
   final List<CameraDescription> cameras;
@@ -22,6 +21,8 @@ class _CameraScreenState extends State<CameraScreen> {
   bool _isRearCameraSelected = true;
   bool _isWatermarkEnabled = true;
   bool _isProcessing = false;
+
+  final String serverUrl = 'http://192.168.55.227:5000/apply_watermark';
 
   @override
   void initState() {
@@ -66,24 +67,23 @@ class _CameraScreenState extends State<CameraScreen> {
 
       File processedImage = File(image.path);
       if (_isWatermarkEnabled) {
-        processedImage = await compute(_applyInvisibleWatermark, image.path);
+        processedImage = await _sendImageToServer(image.path);
       }
 
       final result = await ImageGallerySaver.saveFile(processedImage.path);
       if (result['isSuccess']) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('워터마크가 적용된 사진이 갤러리에 저장되었습니다.')),
+          SnackBar(content: Text(_isWatermarkEnabled ? '워터마크가 적용된 사진이 갤러리에 저장되었습니다.' : '사진이 갤러리에 저장되었습니다.')),
         );
       } else {
         throw Exception('저장 실패: ${result['errorMessage']}');
       }
 
-      // 임시 파일 삭제
       await processedImage.delete();
     } catch (e) {
       print('사진 촬영 및 저장 실패: $e');
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('사진 저장 중 오류가 발생했습니다.')),
+        SnackBar(content: Text('사진 저장 중 오류가 발생했습니다: $e')),
       );
     } finally {
       setState(() {
@@ -91,6 +91,34 @@ class _CameraScreenState extends State<CameraScreen> {
       });
     }
   }
+
+  Future<File> _sendImageToServer(String imagePath) async {
+    try {
+      var request = http.MultipartRequest('POST', Uri.parse(serverUrl));
+      request.files.add(await http.MultipartFile.fromPath('image', imagePath));
+
+      var response = await request.send().timeout(Duration(seconds: 30));
+
+      if (response.statusCode == 200) {
+        final respStr = await response.stream.bytesToString();
+        final decodedResp = jsonDecode(respStr);
+        final noisyImageBytes = base64Decode(decodedResp['noisy_image']);
+
+        final tempDir = await getTemporaryDirectory();
+        final tempPath = '${tempDir.path}/noisy_image.jpg';
+        final noisyFile = File(tempPath);
+        await noisyFile.writeAsBytes(noisyImageBytes);
+
+        return noisyFile;
+      } else {
+        throw Exception('서버 오류: ${response.statusCode} - ${response.reasonPhrase}');
+      }
+    } catch (e) {
+      print('서버 통신 실패: $e');
+      rethrow;
+    }
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -152,9 +180,12 @@ class _CameraScreenState extends State<CameraScreen> {
           setState(() {
             _isWatermarkEnabled = !_isWatermarkEnabled;
           });
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text(_isWatermarkEnabled ? '워터마크가 켜졌습니다.' : '워터마크가 꺼졌습니다.')),
+          );
         },
         child: Icon(
-          _isWatermarkEnabled ? Icons.copyright : Icons.clear,
+          _isWatermarkEnabled ? Icons.copyright : Icons.circle,
         ),
       ),
     );
@@ -168,45 +199,4 @@ class _CameraScreenState extends State<CameraScreen> {
       ],
     );
   }
-}
-
-Future<File> _applyInvisibleWatermark(String imagePath) async {
-  final bytes = await File(imagePath).readAsBytes();
-  final image = img.decodeImage(bytes);
-
-  if (image == null) throw Exception('이미지를 불러올 수 없습니다.');
-
-  final watermark = _generateWatermarkPattern(image.width, image.height);
-
-  for (int y = 0; y < image.height; y += 2) {
-    for (int x = 0; x < image.width; x += 2) {
-      final pixel = image.getPixel(x, y);
-      final r = pixel.r.toInt();
-      final g = pixel.g.toInt();
-      final b = pixel.b.toInt();
-
-      final newR = (r + (watermark[y ~/ 2][x ~/ 2] ? 1 : -1)).clamp(0, 255);
-      final newG = (g + (watermark[y ~/ 2][x ~/ 2] ? 1 : -1)).clamp(0, 255);
-      final newB = (b + (watermark[y ~/ 2][x ~/ 2] ? 1 : -1)).clamp(0, 255);
-
-      final newColor = (newR << 16) | (newG << 8) | newB;
-      image.setPixel(x, y, img.ColorInt8(newColor));
-    }
-  }
-
-  final tempDir = await getTemporaryDirectory();
-  final tempPath = '${tempDir.path}/watermarked_image.jpg';
-  final watermarkedFile = File(tempPath);
-  await watermarkedFile.writeAsBytes(img.encodeJpg(image, quality: 90));
-
-  return watermarkedFile;
-}
-
-List<List<bool>> _generateWatermarkPattern(int width, int height) {
-  final random = Random(42);
-  final pattern = List.generate(
-      (height / 2).ceil(),
-          (_) => List.generate((width / 2).ceil(), (_) => random.nextBool())
-  );
-  return pattern;
 }
