@@ -1,3 +1,5 @@
+![SAFEcam — project overview](docs/images/project-cover.svg)
+
 # SAFEcam
 
 **촬영한 이미지에 서버 기반 워터마크 처리를 연결한 Flutter 카메라 프로토타입**
